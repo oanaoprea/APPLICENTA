@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:model="clr-namespace:App1.Models" xmlns:viewmodels="clr-namespace:App1.ViewModels"
+             x:Class="App1.Views.CRUDUsers"
+             x:DataType="viewmodels:UserDatabase"
+             Title="Manage Users">
+    <ContentPage.Content>
+        <ListView x:Name="listView"
+            Margin="20"
+                  HasUnevenRows="True"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="listView_Refreshing"
+                  RefreshControlColor="Red">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <ViewCell>
+                        <Grid>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" Padding="10" WidthRequest="250">
+                                    <Label VerticalOptions="Center"
+                                           FontSize="20"
+                                           Text="{Binding Username}"
+                                           FontAttributes="Bold"/>
+                                    <Label VerticalOptions="Center"
+                                           FontSize="15"
+                                           Text="{Binding Password}"/>
+                                    <Label VerticalOptions="Center"
+                                           FontSize="15"
+                                           Text="{Binding Id}"
+                                           TextColor="OrangeRed"
+                                           />
+
+                                </StackLayout>
+                                
+
+                                    <Button Clicked="DeleteClicked"
+                                        Text="X"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        FontSize="20"
+                                        FontAttributes="Bold"
+                                        CornerRadius="7"
+                                        Margin="25"
+                                        WidthRequest="55"
+                                           />
+
+                                
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

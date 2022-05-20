@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Title="Log In">
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="Center">
+            <Label Text="Username: " 
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   Margin="15,10,10,0"/>
+            <Entry x:Name="username"
+                Placeholder="username" 
+                   Margin="10,0,10,0"
+                   Text="{Binding Username}"/>
+            <Label Text="Password: "
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   Margin="15,10,10,0"/>
+            <Entry x:Name="password"
+                IsPassword="True" Placeholder="password"
+                   Margin="10,0,10,0"
+                   Text="{Binding Password}"/>
+            <Button Text="Login" Clicked="Button_Clicked"
+                    Margin="10"/>
+            <Label Text="Register"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Green">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

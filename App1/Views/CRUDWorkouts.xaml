@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:model="clr-namespace:App1.Models"
+             x:Class="App1.Views.CRUDWorkouts"
+             Title="Manage Workouts">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add New Workoutss"
+            Clicked="OnToolbarItemClicked" 
+                     />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ListView x:Name="listView"
+            Margin="20"
+                  HasUnevenRows="True"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="listView_Refreshing"
+                  RefreshControlColor="Red">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Workout">
+                    <ViewCell>
+                        <Grid>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" Padding="10" WidthRequest="300">
+                                    <Label VerticalOptions="Center"
+                                           FontSize="20"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"/>
+                                    <Label VerticalOptions="Center"
+                                           FontSize="15"
+                                           Text="{Binding Description}"/>
+                                    <Label VerticalOptions="Center"
+                                           FontSize="15"
+                                           Text="{Binding CaloriesBurnt}"
+                                           TextColor="OrangeRed"
+                                           />
+
+                                </StackLayout>
+                                <Grid ColumnDefinitions="*, *"
+                                      RowDefinitions="50">
+                                    <Button Clicked="EditClicked"
+                                       CommandParameter="{Binding .}"
+                                        Text="Edit"
+                                        BackgroundColor="Green"
+                                        TextColor="White"
+                                        FontSize="10"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        CornerRadius="7"
+                                      />
+
+                                    <Button Clicked="DeleteClicked"
+                                        Text="X"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        FontSize="20"
+                                        Grid.Column="2"
+                                        FontAttributes="Bold"
+                                        CornerRadius="7"/>
+
+                                </Grid>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

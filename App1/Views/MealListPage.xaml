@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:models="clr-namespace:App1.Models" xmlns:viewmodels="clr-namespace:App1.ViewModels"
+             x:Class="App1.Views.MealListPage"
+             x:DataType="models:Meal">
+    <ContentPage.BindingContext>
+        <models:Meal/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter the meal name"
+                Text="{Binding Name}"
+                HeightRequest="100" />
+            <Editor Placeholder="Enter the meal ingredients"
+                Text="{Binding Ingredients}"
+                HeightRequest="100" />
+            <Editor Placeholder="Enter the meal calories"
+                Text="{Binding Calories}"
+                HeightRequest="100" />
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" 
+                        BackgroundColor="Olive"/>
+                
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

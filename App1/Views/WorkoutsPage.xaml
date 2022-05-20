@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:model="clr-namespace:App1.Models"
+             x:Class="App1.Views.WorkoutsPage"
+             Title="Workouts">
+
+    
+
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Calories Burnt: " 
+                       FontSize="25"
+                       FontAttributes="Bold"/>
+
+                <Label x:Name="label_cal" Text=""
+                           TextColor="Green"
+                           FontSize="25"
+                           FontAttributes="Bold"/>
+                <Label Text="kcal" TextColor="Green"
+                           FontSize="25"
+                           FontAttributes="Bold"/>
+            </StackLayout>
+            <ListView SeparatorVisibility="None"
+                      BackgroundColor="Transparent"
+                      VerticalOptions="Center"
+                      x:Name="listView"
+                      HasUnevenRows="True"
+                      >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Workout">
+                        <ViewCell>
+
+                            <Grid BackgroundColor="Transparent">
+                                <Frame BackgroundColor="Transparent"
+                                       CornerRadius="20">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="workout.png" WidthRequest="59" Margin="0, 0, 15, 0"/>
+                                        <StackLayout Orientation="Vertical" WidthRequest="300">
+                                            <Label VerticalOptions="Start"
+                                           FontSize="20"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"/>
+                                            <Label VerticalOptions="Start"
+                                           FontSize="15"
+                                           Text="{Binding Description}"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label VerticalOptions="Start"
+                                                   FontSize="15"
+                                                   Text="{Binding CaloriesBurnt}"
+                                                   TextColor="OrangeRed"/>
+                                                <Label FontSize="15"
+                                                       Text="kcal"
+                                                       TextColor="OrangeRed"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <CheckBox Color="Green" 
+                                                  Margin="60, 0, 0, 0"
+                                                  CheckedChanged="box1_CheckedChanged"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
