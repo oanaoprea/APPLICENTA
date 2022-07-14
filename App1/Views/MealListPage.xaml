@@ -20,7 +20,7 @@
                 HeightRequest="100" />
             <Button Text="Save"
                     Clicked="OnSaveButtonClicked" 
-                        BackgroundColor="Olive"/>
+                        BackgroundColor="Green"/>
                 
             
         </StackLayout>

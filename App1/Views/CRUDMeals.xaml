@@ -31,12 +31,17 @@
                                     <Label VerticalOptions="Center"
                                            FontSize="15"
                                            Text="{Binding Ingredients}"/>
-                                    <Label VerticalOptions="Center"
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label VerticalOptions="Center"
                                            FontSize="15"
                                            Text="{Binding Calories}"
                                            TextColor="OrangeRed"
                                            />
-
+                                        <Label VerticalOptions="Center"
+                                           FontSize="15"
+                                           Text="kcal"
+                                           TextColor="OrangeRed"/>
+                                    </StackLayout>
                                 </StackLayout>
                                 <Grid ColumnDefinitions="*, *"
                                       RowDefinitions="50">

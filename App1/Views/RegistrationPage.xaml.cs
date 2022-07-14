@@ -20,12 +20,25 @@ namespace App1.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (username.Text != null && password.Text != null)
+            int ok = 1;
+            List<User> users = await App.Database2.GetUserAsync();
+            foreach (var i in users)
+            {
+                if (i.Username == username.Text)
+                {
+                    ok = 0;
+                }
+            }
+            if (username.Text != null && password.Text != null && ok == 1)
             {
                 var ulist = (User)BindingContext;
                 await App.Database2.SaveUserAsync(ulist);
                 await Navigation.PushAsync(new LoginPage());
                 await DisplayAlert("Success", "You have been registered!", "OK");
+            }
+            else if (ok==0)
+            {
+                await DisplayAlert("Alert", "Username already used!", "OK");
             }
             else
             {

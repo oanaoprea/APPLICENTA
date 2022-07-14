@@ -16,6 +16,7 @@ namespace App1.Views
         {
 
             InitializeComponent();
+            Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
         protected override async void OnAppearing()

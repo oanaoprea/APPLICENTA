@@ -33,17 +33,22 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Meal"
-                                  x:Name="mydt">
+                                  x:Name="mydt"
+                                  >
                         <ViewCell
-                            x:Name="myvc">
+                            x:Name="myvc"
+                            >
 
                             <Grid BackgroundColor="Transparent"
-                                  x:Name="mygrid">
+                                  x:Name="mygrid"
+                                  >
                                 <Frame BackgroundColor="Transparent"
                                        CornerRadius="20"
-                                       x:Name="myframe">
-                                    <StackLayout Orientation="Horizontal">
-                                    <Image Source="meal.png" WidthRequest="59" Margin="0, 0, 15, 0"/>
+                                       x:Name="myframe"
+                                       >
+                                    <StackLayout Orientation="Horizontal"
+                                                 >
+                                        <Image Source="meal.png" WidthRequest="59" Margin="0, 0, 15, 0"/>
                                         <StackLayout Orientation="Vertical" WidthRequest="300">
                                         <Label VerticalOptions="Start"
                                            FontSize="20"
@@ -66,11 +71,11 @@
                                         <CheckBox 
                                            
                                             x:Name="box1"
-                                              IsChecked="{Binding Checked}"
+                                              IsChecked="{Binding IsChecked}"
                                                   Color="Green"
                                                   Margin="60, 0, 0, 0"
                                                   CheckedChanged="box1_CheckedChanged"
-                                                  BindingContext="{Binding .}"
+                                                  BindingContext="{Binding ., Mode=TwoWay}"
                                                   />
                                       
 

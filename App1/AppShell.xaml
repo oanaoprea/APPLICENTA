@@ -97,6 +97,9 @@
     <FlyoutItem x:Name="meal" Title="Meals" Icon="meal.png">
         <ShellContent Route="MealsPage" ContentTemplate="{DataTemplate local:MealsPage}" />
     </FlyoutItem>
+    <FlyoutItem x:Name="balance" Title="Balance" Icon="balance.png">
+        <ShellContent Route="BalancePage" ContentTemplate="{DataTemplate local:BalancePage}" />
+    </FlyoutItem>
     <FlyoutItem x:Name="mmeal" Title="Manage Meals" Icon="CRUDMeals.png">
         <ShellContent Route="CRUDMeals" ContentTemplate="{DataTemplate local:CRUDMeals}" />
     </FlyoutItem>

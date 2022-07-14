@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.BalancePage"
+             Title="Balance">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BorderColor="OrangeRed">
+                <StackLayout>
+
+                    <Label
+                Text="Insert the number of calories you want to consume today:"
+                FontSize="19"
+                TextColor="DarkSlateGray"
+                Padding="20"/>
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Entry Placeholder="Calories"
+                       FontSize="20"
+                       Margin="20,10,0,20"
+                       TextColor="DarkSlateGray"
+                               Completed="insert_Completed"
+                               x:Name="insert"/>
+                        <Label Text="kcal"
+                       FontSize="20"
+                       Margin="0,20,20,20"
+                       TextColor="DarkSlateGray"/>
+                        
+                    </StackLayout>
+                    <Label Text=""
+                           IsVisible="false"
+                               x:Name="error"
+                               TextColor="Red"
+                               FontSize="20"
+                               />
+                </StackLayout>
+            </Frame>
+            <Label
+                Text="Balance:"
+                FontSize="30"
+                FontAttributes="Bold"
+                Padding="40,40,40,15"
+                TextColor="DarkSlateGray"/>
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="total"
+                       Text="0"
+                       FontSize="25"
+                       TextColor="Green"
+                       Padding="40,0,0,0"
+                       FontAttributes="Bold"/>
+                <Label 
+                   Text="="
+                   FontSize="25"
+                   TextColor="DarkSlateGray"
+                   Padding="5,0,0,0"
+                    />
+                <Label x:Name="kcal"
+                   Text="0"
+                   FontSize="25"
+                   TextColor="DarkSlateGray"
+                   Padding="5,0,0,0"
+                   FontAttributes="Bold"/>
+                <Label 
+                   Text="-"
+                   FontSize="25"
+                   TextColor="DarkSlateGray"
+                   Padding="5,0,0,0"
+                    />
+                <Label x:Name="consumed"
+                   Text="0"
+                   FontSize="25"
+                   TextColor="OrangeRed"
+                   Padding="5,0,0,0"
+                   FontAttributes="Bold"/>
+                <Label 
+                   Text="+"
+                   FontSize="25"
+                   TextColor="DarkSlateGray"
+                   Padding="5,0,0,0"/>
+                <Label x:Name="burnt"
+                   Text="0"
+                   FontSize="25"
+                   TextColor="Green"
+                   Padding="5,0,0,0"
+                   FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label 
+                       Text="remaining"
+                       FontSize="15"
+                       TextColor="Gray"
+                       Padding="40,0,0,20"
+                       />
+                
+                <Label 
+                   Text="total"
+                   FontSize="15"
+                   TextColor="Gray"
+                   Padding="35,0,0,20"
+                   />
+                
+                <Label 
+                   Text="consumed"
+                   FontSize="15"
+                   TextColor="Gray"
+                   Padding="33,0,0,20"
+                   />
+                
+                <Label 
+                   Text="burnt"
+                   FontSize="15"
+                   TextColor="Gray"
+                   Padding="25,0,0,20"
+                   />
+            </StackLayout>
+            <Button Text="Next Day"
+                    Margin="280,80,50,0"
+                    FontAttributes="Bold"
+                    BackgroundColor="Green"
+                    Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

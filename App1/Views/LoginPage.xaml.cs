@@ -16,7 +16,14 @@ namespace App1.Views
         public LoginPage()
         {
             InitializeComponent();
+         /*  Routing.RegisterRoute("/WorkoutsPage", typeof(WorkoutsPage));
+            Routing.RegisterRoute("/CRUDWorkouts", typeof(CRUDWorkouts));
+            Routing.RegisterRoute("/MealsPage", typeof(MealsPage));
+            Routing.RegisterRoute("/CRUDMeals", typeof(CRUDMeals));
+            Routing.RegisterRoute("/BalancePage", typeof(BalancePage)); */
+  
         }
+       
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -28,17 +35,10 @@ namespace App1.Views
                     ok = 1;
             }
 
-            if (username.Text == "admin")
-            {
-                var meal = (Shell.Current as AppShell).MealItem;
-                meal.IsVisible = false;
+     
+            int ver = 0;
 
-                var workout = (Shell.Current as AppShell).WkItem;
-                workout.IsVisible = false;
-
-            }
-
-            if (username.Text != "admin")
+            if (ok == 1 && username.Text != null && password.Text != null && username.Text != "admin")
             {
                 var mmeal = (Shell.Current as AppShell).MMealItem;
                 mmeal.IsVisible = false;
@@ -49,17 +49,24 @@ namespace App1.Views
                 var muser = (Shell.Current as AppShell).MUserItem;
                 muser.IsVisible = false;
 
-            }
-
-            if (ok == 1 && username.Text != null && password.Text != null && username.Text != "admin")
-            {
                 await Shell.Current.GoToAsync($"//{nameof(WorkoutsPage)}");
+                ver = 1;
             }
-            else if (ok == 1 && username.Text != null && password.Text != null && username.Text == "admin")
+            if (ok == 1 && username.Text != null && password.Text != null && username.Text == "admin")
             {
+                var meal = (Shell.Current as AppShell).MealItem;
+                meal.IsVisible = false;
+
+                var workout = (Shell.Current as AppShell).WkItem;
+                workout.IsVisible = false;
+
+                var balance = (Shell.Current as AppShell).BalanceItem;
+                balance.IsVisible = false;
+
                 await Shell.Current.GoToAsync($"//{nameof(CRUDWorkouts)}");
+                ver = 1;
             }
-            else
+            if (ver == 0)
             {
                 await DisplayAlert("Alert", "Incorrect username or password!", "OK");
             }

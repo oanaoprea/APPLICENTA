@@ -10,6 +10,7 @@ namespace App1
         public ShellItem WkItem;
         public ShellItem MWkItem;
         public ShellItem MUserItem;
+        public ShellItem BalanceItem;
         public AppShell()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace App1
             WkItem = workouts;
             MWkItem = mwk;
             MUserItem = muser;
+            BalanceItem = balance;
 
         }
 
@@ -50,6 +52,11 @@ namespace App1
         public ShellItem GetMUsers()
         {
             return muser;
+        }
+
+        public ShellItem GetBalance()
+        {
+            return balance;
         }
     }
 }

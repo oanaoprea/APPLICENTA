@@ -7,8 +7,6 @@ namespace App1
 {
     public partial class App : Application
     {
-
-
         static UserDatabase database2;
         public static UserDatabase Database2
         {

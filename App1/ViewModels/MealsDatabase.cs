@@ -39,6 +39,8 @@ namespace App1.ViewModels
                 return _database.InsertAsync(mlist);
             }
         }
+
+   
         public Task<int> DeleteMealAsync(Meal mlist)
         {
             return _database.DeleteAsync(mlist);

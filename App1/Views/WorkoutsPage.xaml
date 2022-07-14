@@ -59,7 +59,9 @@
                                         </StackLayout>
                                         <CheckBox Color="Green" 
                                                   Margin="60, 0, 0, 0"
-                                                  CheckedChanged="box1_CheckedChanged"/>
+                                                  CheckedChanged="box1_CheckedChanged"
+                                                  BindingContext="{Binding ., Mode=TwoWay}"
+                                                  IsChecked="{Binding IsChecked}"/>
                                     </StackLayout>
                                 </Frame>
                             </Grid>

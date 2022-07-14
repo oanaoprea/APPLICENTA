@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,30 +15,34 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MealsPage : ContentPage
     {
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetMealAsync();
+            
+            listView.ItemsSource = new ObservableCollection<Meal>(await App.Database.GetMealAsync());
+            List<Meal> mlist = await App.Database.GetMealAsync();
+            calories_consumed = 0;
+            listView.SelectedItem = null;
+            foreach (var i in mlist)
+            {
+                if (i.IsChecked == true)
+                {
+                    calories_consumed = calories_consumed + long.Parse(i.Calories);
+                }
+            }
+                label_cal.Text = calories_consumed.ToString();
+
         }
+        public bool ch;
         public long calories_consumed = 0;
-        bool ch = false;
-        
+       
         public MealsPage()
         {
             InitializeComponent();
-            label_cal.Text = calories_consumed.ToString();
-            
-            
         }
-
-        
-
-
         private void box1_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            
-            
+            ch = false;
             var meal = listView.SelectedItem as Meal;
             if (listView.SelectedItem != null)
             {
@@ -53,10 +58,11 @@ namespace App1.Views
                     calories_consumed = calories_consumed - cal;
                     ch = false;
                 }
-            }
-            label_cal.Text = calories_consumed.ToString();
-        }
 
-       
+                meal.IsChecked = ch;
+                App.Database.SaveMealAsync(meal);
+                label_cal.Text = calories_consumed.ToString();
+            }
+        }  
     }
 }
